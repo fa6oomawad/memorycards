@@ -2,6 +2,7 @@ $(document).ready(function(){
 var img1;
 var img2;
     $("#btn").click(function(){
+       
         $("#btn").hide();
         $("#main h1").hide();
         $("#box").css("visibility","visible");
@@ -22,12 +23,14 @@ var img2;
       count.push(b);
 //when there is 2 pictures choosen , let the check begin 
       if (count.length==2){
+      
 //if they are equal , thats means they match so user gets 1 point 
         if (count[0]==count[1]){
             point+=1;
             $("#score").text("Score: " + point);
             console.log(point);
             count=[];
+           
         }
         //else no point , wait 2 seconds and hide the images again 
         else{
@@ -45,7 +48,19 @@ var img2;
            count=[];
            
         }
+        
     }
+    if (point==4){
+        setTimeout(youWin, 1000);
+        function youWin(){
+            alert("YAAAY you wiinn :D");
+
+            $(".back img").css("visibility","hidden");
+            $("#score").text("Score: " );
+        }
+       
+    }
+   
     
 
         });
