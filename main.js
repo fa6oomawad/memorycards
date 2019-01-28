@@ -1,6 +1,7 @@
 $(document).ready(function(){
 var img1;
 var img2;
+
     $("#btn").click(function(){
        
         $("#btn").hide();
@@ -14,13 +15,24 @@ var img2;
     var count=[];
     //var to store the points when user get it right
    var point=0;
+   var previousTarget=null;
 
-       $(".smallbox").click(function(){
-    //cange the visibility of the choosen image 
-        $(this).find('img:first').css("visibility","visible");
+       $(".smallbox").click(function(e){
+       
+
+        if (previousTarget !== this){
+   
+    //cange the visibility of the choosen image
+    $(this).find('img:first').css("visibility","visible");
     //find its src so its can be stored in array to manipulated it later
-        var b= $(this).find('img:first').attr("src");
+     var b= $(this).find('img:first').attr("src");
       count.push(b);
+      console.log(count);
+      previousTarget=this;
+        }
+    
+    
+
 //when there is 2 pictures choosen , let the check begin 
       if (count.length==2){
       
@@ -28,7 +40,6 @@ var img2;
         if (count[0]==count[1]){
             point+=1;
             $("#score").text("Score: " + point);
-            console.log(point);
             count=[];
            
         }
@@ -39,7 +50,7 @@ var img2;
            var hidewrong= $('img[src="' + count[0] + '"]');
            var hidewrong2= $('img[src="' + count[1] + '"]');
            
-           setTimeout(myFunction, 2000);
+           setTimeout(myFunction, 1000);
             function myFunction(){
                 hidewrong.css("visibility","hidden");
            hidewrong2.css("visibility","hidden");
@@ -57,6 +68,7 @@ var img2;
 
             $(".back img").css("visibility","hidden");
             $("#score").text("Score: " );
+            points=0;
         }
        
     }
