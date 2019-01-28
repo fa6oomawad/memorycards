@@ -39,6 +39,7 @@ var img2;
 //if they are equal , thats means they match so user gets 1 point 
         if (count[0]==count[1]){
             point+=1;
+            $("#score").animate({backgroundColor:'yellow'}, 100);
             $("#score").text("Score: " + point);
             count=[];
            
@@ -59,7 +60,9 @@ var img2;
            count=[];
            
         }
-        
+
+        $("#score").animate({backgroundColor:'black'}, 700);
+
     }
     if (point==4){
         setTimeout(youWin, 1000);
