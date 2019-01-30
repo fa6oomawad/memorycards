@@ -71,7 +71,7 @@ var img2;
 
             $(".back img").css("visibility","hidden");
             $("#score").text("Score: " );
-            points=0;
+            point=0;
         }
        
     }
